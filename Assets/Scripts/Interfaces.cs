@@ -11,6 +11,7 @@ public interface IInteractable
         Debug.Log("interact");
     }
 }
+
 public interface ICollectable
 {
     public virtual void Collect()
