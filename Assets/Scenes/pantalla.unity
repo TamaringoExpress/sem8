@@ -649,11 +649,12 @@ GameObject:
   - component: {fileID: 1343536659}
   - component: {fileID: 1343536658}
   - component: {fileID: 1343536657}
+  - component: {fileID: 1343536663}
   - component: {fileID: 1343536662}
   - component: {fileID: 1343536661}
   - component: {fileID: 1343536660}
   m_Layer: 0
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +670,7 @@ Animator:
   m_GameObject: {fileID: 1343536656}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ba38f328cea501f4ea0645bc29bf14dd, type: 2}
+  m_Controller: {fileID: 9100000, guid: cb77a531df53020449ee50faab383353, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -768,8 +769,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 3
+  m_AngularDamping: 0.5
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -837,17 +838,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1343536656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf313a2d92fc612488a03c05de9ce566, type: 3}
+  m_Script: {fileID: 11500000, guid: c8dde554d97723f419d1367d2277c8d3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
+  m_EditorClassIdentifier: Assembly-CSharp::AnimatorControllet
+  controller: {fileID: 1343536663}
+  animator: {fileID: 1343536657}
+  MoveInput: {x: 0, y: 0}
+--- !u!114 &1343536663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343536656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52602f6e4a110674da3a4818a247b0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterController
   entityID: 0
   entityName: 
   enetityDescription: 
   element: 0
-  playerController: 1
-  MoveInput: {x: 0, y: 0}
-  MoveSpeed: 8
-  Enemys: []
+  rigibody: {fileID: 1343536660}
+  IsGrounded: 0
+  MoveInput: 0
+  Speed: 10
+  JumpForce: 15
 --- !u!1 &1466067200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,7 +1283,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
+  m_CompositeOperation: 1
   m_CompositeOrder: 0
   m_Offset: {x: 7.556102, y: 0}
   m_SpriteTilingProperty:
@@ -1289,7 +1306,7 @@ Transform:
   m_GameObject: {fileID: 1791567413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.49, y: -4.42, z: 0}
+  m_LocalPosition: {x: -10.7, y: -4.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
